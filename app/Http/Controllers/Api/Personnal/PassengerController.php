@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Personnal;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PassengerRequest;
 use App\Models\Passenger;
+use App\Models\Ticket;
 use App\services\api\passengers\AddPassengerServices;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class PassengerController extends Controller
 
     }
 
-    public function store(PassengerRequest $request,$id){
+    public function store(PassengerRequest $request,$id,$sub_agency_id){
 
 
 
@@ -30,6 +31,13 @@ class PassengerController extends Controller
         $passenger->seatNumber=$response['place'];
         $passenger->travel_id=$id;
         $passenger->save();
+
+        $ticket=new Ticket;
+        $ticket->sub_agency_id=$sub_agency_id;
+        $ticket->travel_id=$id;
+        $ticket->passenger_id=$passenger->id;
+        $ticket->type=1;
+        $ticket->save();
         return $response;
     }
 }
