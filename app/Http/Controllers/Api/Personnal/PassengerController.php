@@ -25,7 +25,6 @@ class PassengerController extends Controller
         $passenger=new Passenger;
         $passenger->name=$request->name;
         $passenger->type=$request->type;
-        $passenger->travel_id=$request->travel_id;
         $passenger->cni=$request->cni;
         $passenger->telephone=$request->telephone;
         $passenger->seatNumber=$response['place'];

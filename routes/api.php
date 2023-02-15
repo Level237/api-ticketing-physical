@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\Personnal\PassengerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\User\AddPassengerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('add/passenger/{id}/{sub_agency_id}',[PassengerController::class,'store']);
+Route::post('user/add/passengers/{cni}/{$name}/{type}/{telephone}/{seatNumber}/{isCheckPayment}/{travel_id}',[AddPassengerController::class,'add']);
