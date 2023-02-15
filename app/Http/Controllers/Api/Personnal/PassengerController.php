@@ -20,7 +20,7 @@ class PassengerController extends Controller
 
 
 
-        $response = (new AddPassengerServices())->add($id,$request);
+        $response = (new AddPassengerServices())->add($id,$request,$sub_agency_id);
 
         $passenger=new Passenger;
         $passenger->name=$request->name;
