@@ -1,6 +1,6 @@
 <?php
 
-namespace App\services\Api;
+namespace App\services\api;
 
 class UrlServices{
 

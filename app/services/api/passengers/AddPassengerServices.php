@@ -1,7 +1,7 @@
 <?php
 
 namespace App\services\api\passengers;
-use App\services\Api\UrlServices;
+use App\services\api\UrlServices;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;

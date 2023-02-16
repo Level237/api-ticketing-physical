@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class AddPassengerController extends Controller
 {
-    public function add($cni,$name,$type,$telephone,$seatNumber,$isCheckPayment,$travel_id){
+    public function add($cni,$name,$type,$telephone,$seatNumber,$isCheckPayment,$travel_id,$count){
 
-        $passenger=new Passenger;
+        for($i=0;$i<$count;$i++){
+            $passenger=new Passenger;
         $passenger->name=$name;
         $passenger->type=$type;
         $passenger->travel_id=$travel_id;
@@ -19,7 +20,9 @@ class AddPassengerController extends Controller
         $passenger->seatNumber=$seatNumber;
         $passenger->isCheckPayment=$isCheckPayment;
         $passenger->save();
+        }
 
-        return response()->json(['message'=>"Passager ajoutée"],200);
+
+        return response()->json(['message'=>"Passager ajoutée"],201);
     }
 }
