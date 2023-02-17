@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('add/passenger/{id}/{sub_agency_id}',[PassengerController::class,'store']);
-Route::post('passengers/{cni}/{name}/{type}/{telephone}/{seatNumber}/{isCheckPayment}/{travel_id}/{count}',[AddPassengerController::class,'add']);
+Route::post('passengers/{travel_id}',[AddPassengerController::class,'add']);

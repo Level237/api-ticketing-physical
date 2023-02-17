@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Personnal;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PassengerRequest;
+use App\Models\Bordereau;
 use App\Models\Passenger;
 use App\Models\Ticket;
 use App\services\api\passengers\AddPassengerServices;
@@ -37,6 +38,10 @@ class PassengerController extends Controller
         $ticket->passenger_id=$passenger->id;
         $ticket->type=1;
         $ticket->save();
+
+        // $bordereau=new Bordereau;
+        // $bordereau->ticket_id=$ticket->id;
+        // $bordereau->ticketAmount=
         return $response;
     }
 }
