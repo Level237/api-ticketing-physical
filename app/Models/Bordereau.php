@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bordereau extends Model
 {
@@ -14,4 +16,9 @@ class Bordereau extends Model
         'ticketAmount',
         'amountReimbursed'
     ];
+
+    public function ticket():BelongsTo
+    {
+        return $this->belongsTo(Ticket::class);
+    }
 }

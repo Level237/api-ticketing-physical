@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Bordereau;
 use App\Models\Passenger;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Ticket extends Model
 {
@@ -21,5 +23,10 @@ class Ticket extends Model
     public function passenger():BelongsTo
     {
         return $this->belongsTo(Passenger::class);
+    }
+
+    public function bordereau():HasMany{
+
+        return $this->hasMany(Bordereau::class);
     }
 }
