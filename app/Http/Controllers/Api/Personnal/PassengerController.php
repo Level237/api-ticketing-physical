@@ -17,7 +17,7 @@ class PassengerController extends Controller
 
     }
 
-    public function store(PassengerRequest $request,$id,$sub_agency_id){
+    public function store(PassengerRequest $request,$id,$sub_agency_id,$amount,$amountReimbursed){
 
 
 
@@ -39,9 +39,10 @@ class PassengerController extends Controller
         $ticket->type=1;
         $ticket->save();
 
-        // $bordereau=new Bordereau;
-        // $bordereau->ticket_id=$ticket->id;
-        // $bordereau->ticketAmount=
+        $bordereau=new Bordereau;
+        $bordereau->ticket_id=$ticket->id;
+        $bordereau->ticketAmount=$amount;
+        $bordereau->amountReimbursed=$amountReimbursed;
         return $response;
     }
 }
