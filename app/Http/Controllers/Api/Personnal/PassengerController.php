@@ -36,7 +36,7 @@ class PassengerController extends Controller
         $ticket->sub_agency_id=$sub_agency_id;
         $ticket->travel_id=$id;
         $ticket->passenger_id=$passenger->id;
-        $ticket->type=1;
+        $ticket->type=0;
         $ticket->save();
 
         $bordereau=new Bordereau;
