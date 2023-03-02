@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class AddPassengerController extends Controller
 {
-    public function add(Request $request,$travel_id,$sub_agency_id){
+    public function add(Request $request,$travel_id){
 
         $PassengerData = $request->all();
         foreach($PassengerData['Passagers'] as  $key => $value){
@@ -23,12 +23,7 @@ class AddPassengerController extends Controller
         $passenger->isCheckPayment=$value['isCheckPayment'];
         $passenger->save();
 
-        $ticket=new Ticket;
-        $ticket->sub_agency_id=$sub_agency_id;
-        $ticket->travel_id=$travel_id;
-        $ticket->passenger_id=$passenger->id;
-        $ticket->type=1;
-        $ticket->save();
+
         }
 
 

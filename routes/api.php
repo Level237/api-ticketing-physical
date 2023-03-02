@@ -24,7 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('add/passenger/{id}/{sub_agency_id}/{amount}/{amountReimbursed}',[PassengerController::class,'store']);
-Route::post('passengers/{travel_id}/{subagency}',[AddPassengerController::class,'add']);
+Route::post('add/bordereau/{amount}/{amountReimbursed}/{sub_agency_id}/{travel_id}/{passenger_id}',[BordereauController::class,'addBordereau']);
+Route::post('passengers/{travel_id}',[AddPassengerController::class,'add']);
 Route::get('all/bordereau/{id}/{travel_id}',[BordereauController::class,'all']);
 Route::get('all/bus',[BusController::class,'index']);
 Route::post('bus/create',[BusController::class,'store']);

@@ -44,6 +44,7 @@ class PassengerController extends Controller
         $bordereau->ticketAmount=$amount;
         $bordereau->amountReimbursed=$amountReimbursed;
         $bordereau->save();
+
         return $response;
     }
 }
