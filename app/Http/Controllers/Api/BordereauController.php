@@ -15,7 +15,7 @@ class BordereauController extends Controller
         $bordereau=DB::table('tickets')
         ->join('bordereaus','tickets.id', '=','bordereaus.ticket_id')
         ->join('passengers','passengers.id', '=','tickets.passenger_id')
-        ->select('bordereaus.id','bordereaus.amountReimbursed','tickets.type','passengers.name','tickets.travel_id','bordereaus.ticketAmount')
+        ->select('bordereaus.id','bordereaus.amountReimbursed','tickets.type','passengers.name','passengers.cni','tickets.travel_id','bordereaus.ticketAmount')
         ->where('tickets.sub_agency_id','=',$id)
         ->where('tickets.travel_id','=',$travel_id)
         ->get();
